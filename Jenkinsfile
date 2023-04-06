@@ -30,15 +30,12 @@ pipeline {
     }
       
     stage('Integrate Jenkins with EKS Cluster and Deploy App') {
-     steps{
-            withAWS(credentials: 'demo-admin-user', region: 'us-east-1') {
-	      sh 'aws eks update-kubeconfig --name eks-demo --region us-east-1'
-              sh "kubectl apply -f eks-deploy-k8s.yaml"
-                }
-            } 
+      steps{
+        withAWS(credentials: 'demo-admin-user', region: 'us-east-1') {
+          sh 'aws eks update-kubeconfig --name eks-demo --region us-east-1'
+          sh "kubectl apply -f eks-deploy-k8s.yaml"
         }
-      }      
-      
+      }
     }
 }
 
