@@ -31,8 +31,10 @@ pipeline {
       
     stage('Integrate Jenkins with EKS Cluster and Deploy App') {
       steps{
-        withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'kube-config', namespace: '', serverUrl: '') {
-          sh "kubectl apply -f eks-deploy-k8s.yaml"
+        withKubeConfig([credentialsId: 'kube-config']) {
+	  sh 'curl -LO "https://storage.googleapis.com/kubernetes-release/release/v1.20.5/bin/linux/amd64/kubectl"'
+	  sh 'chmod u+x ./kubectl'
+          sh "./kubectl apply -f eks-deploy-k8s.yaml"
         }
       }
     }
