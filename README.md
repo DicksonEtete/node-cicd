@@ -3,7 +3,7 @@ Sample NodeJs Application
 
 ## Overview
 
-CI/CD to test, build, push and deploy the NodeJS Dokerized app to AWS EKS using Jenkins Declarative Pipeline.
+CI/CD to test, build, push and deploy the containerized NodeJS app to AWS EKS using Jenkins Declarative Pipeline.
 
 
 ## Pipeline Stages
