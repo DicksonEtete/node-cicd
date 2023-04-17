@@ -1,0 +1,4 @@
+[linux]
+<public IP address>
+[linux:vars]
+ansible_ssh_private_key_file=~/.ssh/<pem file>
